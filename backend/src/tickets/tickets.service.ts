@@ -90,7 +90,7 @@ export class TicketsService {
     });
 
     // Enqueue: TicketNotifyJob
-    const notifyJobId = `notify:${newTicket.id}`;
+    const notifyJobId = `notify-${newTicket.id}`;
     await this.notifyQueue.add(
       'ticketNotify',
       {
@@ -100,7 +100,7 @@ export class TicketsService {
       },
       {
         jobId: notifyJobId,
-        attempts: 3,
+        attempts: Number(process.env.QUEUE_NOTIFY_ATTEMPTS),
         backoff: {
           type: 'exponential',
           delay: Number(process.env.QUEUE_NOTIFY_DELAY_TIME),
@@ -111,7 +111,7 @@ export class TicketsService {
     );
 
     // Enqueue: TicketSlaJob delay 15 minute
-    const slaJobId = `sla:${newTicket.id}`;
+    const slaJobId = `sla-${newTicket.id}`;
     await this.slaQueue.add(
       'ticketSla',
       { ticketId: newTicket.id },
