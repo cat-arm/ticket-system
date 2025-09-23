@@ -11,6 +11,8 @@ node_modules/
 dist/
 build/
 backend/dist/
+frontend/.next/
+frontend/out/
 
 # Database
 *.db
@@ -39,3 +41,31 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+
+# Frontend specific
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# React
+*.tsbuildinfo
+.eslintcache
+
+# Testing
+coverage/
+.nyc_output/
+
+# Storybook
+storybook-static/
+
+# TypeScript
+*.tsbuildinfo
