@@ -78,6 +78,8 @@
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/$1"
     },
-    "setupFilesAfterEnv": ["<rootDir>/../test/setup.ts"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/../test/setup.ts"
+    ]
   }
 }
